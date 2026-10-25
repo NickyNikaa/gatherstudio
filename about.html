@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="description" content="Über Nicole: Ich liebe es, Menschen zu verbinden. Das steckt hinter Gather Studio.">
-<title>Über Nicole | Gather Studio</title>
+<meta name="description" content="Über Gather Studio: Ich bin Nicole und liebe es, Menschen zu verbinden. Das steckt hinter Gather Studio.">
+<title>Über Gather Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#EEF1F3;--surface:#FFFFFF;--ink:#12202A;--muted:#51616C;--line:#D3DBE0;--accent:#F0705A;--accent-ink:#12202A;--deep:#0E3B3F;--deep-ink:#EAF4F2;--tint:#CFE3E0;--f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A1F;--surface:#17252B;--ink:#EAF0F2;--muted:#9DB0B8;--line:#2A3C44;--accent:#FF8068;--deep:#0A2A2D;--tint:#1F4A4E;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0F1A1F;--surface:#17252B;--ink:#EAF0F2;--muted:#9DB0B8;--line:#2A3C44;--accent:#FF8068;--deep:#0A2A2D;--tint:#1F4A4E;color-scheme:dark}
+:root{--bg:#F7F1ED; --surface:#FFFBF8; --ink:#1F1216; --muted:#6A5A5E; --line:#E4D6D1;--accent:#7B1E34; --accent-ink:#FFF6F3; --deep:#4A1020; --deep-ink:#FBEFEC; --tint:#EFD9D6; --pop:#F2B9C4;--glow1:rgba(123,30,52,.10); --glow2:rgba(242,185,196,.40);--f-display:"Fraunces",Georgia,"Times New Roman",serif;--f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#170C10;--surface:#231419;--ink:#F5E9E7;--muted:#BBA3A8;--line:#3A262D;--accent:#E0768B;--accent-ink:#2A0E15;--deep:#2E0A14;--tint:#4A1E2B;--glow1:rgba(224,118,139,.12);--glow2:rgba(123,30,52,.35);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#170C10;--surface:#231419;--ink:#F5E9E7;--muted:#BBA3A8;--line:#3A262D;--accent:#E0768B;--accent-ink:#2A0E15;--deep:#2E0A14;--tint:#4A1E2B;--glow1:rgba(224,118,139,.12);--glow2:rgba(123,30,52,.35);color-scheme:dark}
 *{box-sizing:border-box}
+body{background-image:radial-gradient(60% 38% at 88% 0%,var(--glow1),transparent 72%),radial-gradient(46% 30% at 0% 26%,var(--glow2),transparent 70%);background-repeat:no-repeat}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.7 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.015em;font-weight:600}
 p{margin:0 0 18px}
 a{color:inherit}
 .wrap{max-width:900px;margin:0 auto}
@@ -23,47 +24,47 @@ a{color:inherit}
 .btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px}
-.logo{font:800 22px/1 var(--f-display);letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo{font:600 23px/1 var(--f-display);letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--tint)}
 nav .btn{padding:11px 18px;font-size:15px}
 .hero{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding-block:48px 56px}
-.me{width:200px;height:200px;border-radius:50%;background:var(--deep);display:grid;place-items:center;position:relative;flex:none}
-.me::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--line)}
-.me span{font:800 84px/1 var(--f-display);color:var(--deep-ink)}
-.me i{position:absolute;right:6px;bottom:14px;width:34px;height:34px;border-radius:50%;background:var(--accent);border:5px solid var(--bg)}
+.me{width:230px;height:290px;border-radius:999px 999px 30px 30px;background:var(--deep);position:relative;flex:none}
+.me::before{content:"";position:absolute;inset:-12px;border-radius:999px 999px 38px 38px;border:1.5px solid var(--accent)}
+.me img{position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;border-radius:inherit}
+.me i{position:absolute;right:-6px;bottom:22px;width:30px;height:30px;border-radius:50%;background:var(--accent);border:5px solid var(--bg)}
 .eyebrow{font:600 13px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.hero h1{font-size:clamp(40px,7vw,72px);font-weight:800;margin-top:16px}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent) 62%,var(--accent) 92%,transparent 92%)}
+.hero h1{font-size:clamp(40px,7vw,72px);font-weight:600;line-height:1.04;margin-top:16px}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .hero .sub{margin-top:18px;font-size:20px;color:var(--muted);max-width:30em;margin-bottom:0}
 .story{padding-block:24px 48px;max-width:40em}
-.story h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:22px}
+.story h2{font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:22px}
 .story p{color:var(--ink)}
 .story .lead{font-size:22px;line-height:1.55}
 .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding-bottom:56px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:26px;min-width:0}
 .card h3{font-size:21px;margin-bottom:8px}
 .card p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.6}
-.band{background:var(--deep);color:var(--deep-ink);border-radius:28px;padding:44px clamp(20px,5vw,48px);margin-bottom:56px}
-.band h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
-.band p{color:#BFD9D5;max-width:34em}
+.band{background:var(--deep);color:var(--deep-ink);border-radius:40px;padding:44px clamp(20px,5vw,48px);margin-bottom:56px}
+.band h2{font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:12px}
+.band p{color:#E6CBD0;max-width:34em}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 .band .btn{border-color:var(--deep-ink);color:var(--deep-ink)}
-.band .btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.band .btn.pri{background:var(--pop);border-color:var(--pop);color:#3A0B16}
 footer{padding-block:32px 48px;color:var(--muted);font-size:14.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line)}
-@media (max-width:640px){.hero{grid-template-columns:1fr;gap:32px;padding-block:28px 40px}.me{width:150px;height:150px}.me span{font-size:62px}.vals{grid-template-columns:1fr}body{font-size:17px}}
+@media (max-width:640px){.hero{grid-template-columns:1fr;gap:32px;padding-block:28px 40px}.me{width:180px;height:228px}.vals{grid-template-columns:1fr}body{font-size:17px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav>
   <a class="logo" href="./"><i aria-hidden="true"></i>Gather Studio</a>
-  <a class="btn pri" href="./#anfrage">Anfrage senden</a>
+  <a class="btn pri" href="./#anfrage">Ich möchte mehr erfahren</a>
 </nav>
 
 <header class="hero">
-  <div class="me" aria-hidden="true"><span>N</span><i></i></div>
+  <div class="me"><img src="nicole.jpg" alt="Nicole, Gründerin von Gather Studio" width="640" height="640"><i aria-hidden="true"></i></div>
   <div>
-    <span class="eyebrow">Über mich</span>
+    <span class="eyebrow">Über Gather Studio</span>
     <h1>Hi, ich bin <em>Nicole.</em></h1>
     <p class="sub">Ich liebe es, Menschen zu verbinden.</p>
   </div>
@@ -72,7 +73,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:14.5px;display:flex;
 <section class="story">
   <p class="lead">Die besten Momente entstehen, wenn Menschen sich wirklich begegnen. Nicht im Feed, sondern am gleichen Tisch oder im gleichen Call, mit Zeit für ein echtes Gespräch.</p>
   <p>Verbinden heißt für mich mehr als Vorstellen. Es heißt, einen Raum zu schaffen, in dem sich Menschen wohlfühlen, ihre Fragen stellen und Gleichgesinnte finden. Ohne Druck, ohne Show, mit viel Neugier aufeinander.</p>
-  <p>Deshalb habe ich Gather Studio gestartet. Ich organisiere Treffen für Menschen, die eine Community aufbauen wollen: vor Ort in ausgewählten Locations oder online als moderiertes Q&amp;A. Du bringst deine Reichweite und deine Persönlichkeit mit, ich kümmere mich darum, dass der Rahmen stimmt und sich alle willkommen fühlen.</p>
+  <p>Deshalb habe ich Gather Studio gestartet. Ich organisiere Treffen für Menschen, die eine Community aufbauen wollen: vor Ort in ausgewählten Locations oder online als moderiertes Q&amp;A. Du bringst nur dich und ein offenes Herz mit, ich kümmere mich darum, dass der Rahmen stimmt und sich alle willkommen fühlen.</p>
   <p>Aus demselben Grund habe ich auch <a href="https://findedeineleute.de" target="_blank" rel="noopener noreferrer">FindeDeineLeute.de</a> aufgebaut, ein Verzeichnis für Communities in Deutschland und online. Es soll Menschen helfen, ihre Leute zu finden.</p>
 </section>
 
@@ -87,7 +88,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:14.5px;display:flex;
   <h2>Lass uns über deine Community sprechen.</h2>
   <p>Erzähl mir, was dir vorschwebt. Ich melde mich in der Regel innerhalb von zwei Tagen.</p>
   <div class="acts">
-    <a class="btn pri" href="./#anfrage">Anfrage senden</a>
+    <a class="btn pri" href="./#anfrage">Ich möchte mehr erfahren</a>
     <a class="btn" href="https://www.instagram.com/nicky.nikaa/" target="_blank" rel="noopener noreferrer">Instagram @nicky.nikaa</a>
   </div>
 </div>
