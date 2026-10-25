@@ -39,6 +39,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:12px;paddi
 .logo{font:800 22px/1 var(--f-display);letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--tint)}
 nav .btn{padding:11px 18px;font-size:15px}
+.navr{display:flex;align-items:center;gap:20px}.nl{font-weight:600;font-size:15px;text-decoration:none}.nl:hover{text-decoration:underline}
 
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:36px 72px}
 .hero h1{font-size:clamp(38px,6vw,68px);font-weight:800}
@@ -139,7 +140,7 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
 <div class="wrap">
 <nav>
   <a class="logo" href="#top"><i aria-hidden="true"></i>Gather Studio</a>
-  <a class="btn pri" href="#anfrage">Anfrage senden</a>
+  <div class="navr"><a class="nl" href="about.html">Über mich</a><a class="btn pri" href="#anfrage">Anfrage senden</a></div>
 </nav>
 
 <header class="hero" id="top">
@@ -317,13 +318,13 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
 
 <footer>
   <span><b style="font-family:var(--f-display);color:var(--ink)">Gather Studio</b> · Treffen vor Ort und online</span>
-  <span>Kontakt: nicky.nikaaa@gmail.com</span>
+  <span><a href="about.html">Über mich</a> · Kontakt: nicky.nikaaa@gmail.com</span>
 </footer>
 </div>
 
 <script>
 /* Hier die echten Kontaktdaten eintragen. */
-var CONTACT={email:"nicky.nikaaa@gmail.com",instagram:""};
+var CONTACT={email:"nicky.nikaaa@gmail.com",instagram:"nicky.nikaa"};
 (function(){
   var $=function(s){return document.querySelector(s)};
   var mail=CONTACT.email, ig=CONTACT.instagram.replace(/^@/,"");
