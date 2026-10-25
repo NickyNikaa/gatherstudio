@@ -4,28 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="description" content="Gather Studio organisiert Treffen für Menschen mit Reichweite: Location, Einladung, Anmeldung und Abrechnung.">
+<meta name="description" content="Gather Studio organisiert deine Community Events vor Ort oder online: Location, Einladung, Anmeldung und Abrechnung.">
 <title>Gather Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
-/* Layout: Hero mit Tisch von oben (SVG), danach Leistungen, Ablauf auf tiefem Teal-Band, Modell, Anfrage. */
+/* Layout: Hero mit Tisch von oben (SVG), danach Leistungen, Ablauf auf tiefem Bordeaux-Band, Modell, Anfrage. */
 :root{
-  --bg:#EEF1F3; --surface:#FFFFFF; --ink:#12202A; --muted:#51616C; --line:#D3DBE0;
-  --accent:#F0705A; --accent-ink:#12202A; --deep:#0E3B3F; --deep-ink:#EAF4F2; --tint:#CFE3E0;
-  --f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --bg:#F7F1ED; --surface:#FFFBF8; --ink:#1F1216; --muted:#6A5A5E; --line:#E4D6D1;
+  --accent:#7B1E34; --accent-ink:#FFF6F3; --deep:#4A1020; --deep-ink:#FBEFEC; --tint:#EFD9D6; --pop:#F2B9C4;
+  --glow1:rgba(123,30,52,.10); --glow2:rgba(242,185,196,.40);
+  --f-display:"Fraunces",Georgia,"Times New Roman",serif;
   --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0F1A1F; --surface:#17252B; --ink:#EAF0F2; --muted:#9DB0B8; --line:#2A3C44;
-  --accent:#FF8068; --accent-ink:#12202A; --deep:#0A2A2D; --deep-ink:#EAF4F2; --tint:#1F4A4E; color-scheme:dark}}
+  --bg:#170C10; --surface:#231419; --ink:#F5E9E7; --muted:#BBA3A8; --line:#3A262D;
+  --accent:#E0768B; --accent-ink:#2A0E15; --deep:#2E0A14; --deep-ink:#FBEFEC; --tint:#4A1E2B; --pop:#F2B9C4;
+  --glow1:rgba(224,118,139,.12); --glow2:rgba(123,30,52,.35); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0F1A1F; --surface:#17252B; --ink:#EAF0F2; --muted:#9DB0B8; --line:#2A3C44;
-  --accent:#FF8068; --accent-ink:#12202A; --deep:#0A2A2D; --deep-ink:#EAF4F2; --tint:#1F4A4E; color-scheme:dark}
+  --bg:#170C10; --surface:#231419; --ink:#F5E9E7; --muted:#BBA3A8; --line:#3A262D;
+  --accent:#E0768B; --accent-ink:#2A0E15; --deep:#2E0A14; --deep-ink:#FBEFEC; --tint:#4A1E2B; --pop:#F2B9C4;
+  --glow1:rgba(224,118,139,.12); --glow2:rgba(123,30,52,.35); color-scheme:dark}
 *{box-sizing:border-box}
+body{background-image:radial-gradient(60% 38% at 88% 0%,var(--glow1),transparent 72%),radial-gradient(46% 30% at 0% 26%,var(--glow2),transparent 70%);background-repeat:no-repeat}
 body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.015em;font-weight:600}
 p{margin:0}
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto}
@@ -36,46 +40,46 @@ a{color:inherit}
 .eyebrow{font:600 13px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
 nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px}
-.logo{font:800 22px/1 var(--f-display);letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo{font:600 23px/1 var(--f-display);letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--tint)}
 nav .btn{padding:11px 18px;font-size:15px}
 .navr{display:flex;align-items:center;gap:20px}.nl{font-weight:600;font-size:15px;text-decoration:none}.nl:hover{text-decoration:underline}
 
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:36px 72px}
-.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent) 62%,var(--accent) 92%,transparent 92%)}
+.hero h1{font-size:clamp(40px,6.2vw,72px);font-weight:600;line-height:1.04}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--accent)}
 .hero .lead{margin-top:22px;font-size:19px;max-width:34em;color:var(--muted)}
 .hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
 .hero .facts{margin-top:34px;display:flex;gap:28px;flex-wrap:wrap}
 .hero .facts div{font-size:14px;color:var(--muted);line-height:1.35}
-.hero .facts b{display:block;font:700 26px/1 var(--f-display);color:var(--ink);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.hero .facts b{display:block;font:600 24px/1.1 var(--f-display);color:var(--ink);margin-bottom:4px;font-variant-numeric:tabular-nums}
 .table{width:100%;max-width:460px;justify-self:center}
 .table svg{width:100%;height:auto;display:block}
 
 section{padding-block:72px}
 .head{max-width:36em;margin-bottom:40px}
-.head h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;margin-top:14px}
+.head h2{font-size:clamp(30px,4.4vw,46px);font-weight:600;margin-top:14px}
 .head p{margin-top:14px;color:var(--muted)}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;min-width:0}
-.card h3{font-size:21px;font-weight:700;margin-bottom:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:26px;min-width:0}
+.card h3{font-size:22px;font-weight:600;margin-bottom:10px}
 .card p{color:var(--muted);font-size:16px}
-.card .ic{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;margin-bottom:18px}
+.card .ic{width:46px;height:46px;border-radius:50% 50% 50% 14px;background:var(--tint);display:grid;place-items:center;margin-bottom:18px}
 .card .ic svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .you{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .you .card{background:transparent;border-style:dashed}
 .you ul{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:16px}
 .you li{margin-bottom:6px}
 
-.band{background:var(--deep);color:var(--deep-ink);border-radius:28px;padding:56px clamp(20px,5vw,56px)}
-.band .eyebrow{color:#9CC9C3}
-.band .head p{color:#BFD9D5}
+.band{background:var(--deep);color:var(--deep-ink);border-radius:40px;padding:56px clamp(20px,5vw,56px)}
+.band .eyebrow{color:var(--pop)}
+.band .head p{color:#E6CBD0}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{counter-increment:s;border-top:2px solid rgba(255,255,255,.25);padding-top:18px;min-width:0}
-.steps li::before{content:"Schritt " counter(s);display:block;font:600 13px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.steps h3{font-size:21px;margin-bottom:8px}
-.steps p{color:#BFD9D5;font-size:15.5px}
+.steps li::before{content:"Schritt " counter(s);display:block;font:600 13px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--pop);margin-bottom:12px}
+.steps h3{font-size:22px;margin-bottom:8px}
+.steps p{color:#E6CBD0;font-size:15.5px}
 
 .fmt{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .fmt .card{padding:22px}
@@ -87,13 +91,13 @@ section{padding-block:72px}
 .model{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .split{display:grid;gap:12px}
 .split div{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.split b{font:700 18px/1.2 var(--f-display);display:block;margin-bottom:4px}
+.split b{font:600 19px/1.2 var(--f-display);display:block;margin-bottom:4px}
 .split span{color:var(--muted);font-size:15.5px}
 .split .dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:7px}
 .note{margin-top:16px;font-size:14.5px;color:var(--muted)}
 details{border-top:1px solid var(--line);padding-block:18px}
 details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font:600 18px/1.3 var(--f-display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary{cursor:pointer;font:600 19px/1.3 var(--f-display);list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-size:24px;line-height:1;color:var(--muted)}
 details[open] summary::after{content:"\2212"}
@@ -105,7 +109,7 @@ details p{margin-top:12px;color:var(--muted);max-width:44em}
 .way span{min-width:0;overflow-wrap:anywhere}
 .way small{display:block;color:var(--muted);font-size:13px}
 .way button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:8px 14px;font:600 14px/1 var(--f-body);cursor:pointer}
-form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:16px;min-width:0}
+form{background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:28px;display:grid;gap:16px;min-width:0}
 label{font:600 14px/1.2 var(--f-body);display:grid;gap:6px}
 input,textarea,select{font:400 16px/1.4 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0}
 textarea{min-height:96px;resize:vertical}
@@ -127,7 +131,7 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
   body{font-size:16px}
   section{padding-block:52px}
   .grid,.fmt,.steps,.you,.row2{grid-template-columns:1fr}
-  .band{border-radius:20px;padding-block:40px}
+  .band{border-radius:28px;padding-block:40px}
   .hero .facts{gap:20px}
 }
 @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
@@ -140,16 +144,16 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
 <div class="wrap">
 <nav>
   <a class="logo" href="#top"><i aria-hidden="true"></i>Gather Studio</a>
-  <div class="navr"><a class="nl" href="about.html">Über mich</a><a class="btn pri" href="#anfrage">Anfrage senden</a></div>
+  <div class="navr"><a class="nl" href="about.html">Über Gather Studio</a><a class="btn pri" href="#anfrage">Ich möchte mehr erfahren</a></div>
 </nav>
 
 <header class="hero" id="top">
   <div>
     <span class="eyebrow">Für Menschen mit Reichweite, die eine Community aufbauen</span>
     <h1 style="margin-top:18px">Aus deinen Followern wird eine <em>Community, die dich trägt.</em></h1>
-    <p class="lead">Du brauchst keine große Reichweite, nur Lust auf echte Begegnungen. Gather Studio organisiert Treffen vor Ort in ausgewählten Locations oder online als moderiertes Q&amp;A, mit Einladung, Anmeldung und Abrechnung. Du lernst deine Follower persönlich kennen, baust Vertrauen auf und machst aus Reichweite eine echte Gemeinschaft. Wenn du möchtest, entstehen daraus auch Einnahmen.</p>
+    <p class="lead">Gather Studio organisiert deine Community Events, vor Ort oder als Online-Format. Du baust dadurch eine besondere Beziehung zu deinen Followern auf, eine vertrauensvolle Basis für langfristige Teilnahme. Und wenn du möchtest, verdienst du damit auch Geld oder Brand-Deals.</p>
     <div class="cta">
-      <a class="btn pri" href="#anfrage">Event anfragen</a>
+      <a class="btn pri" href="#anfrage">Ich möchte mehr erfahren</a>
       <a class="btn" href="#ablauf">So läuft es ab</a>
     </div>
     <div class="facts">
@@ -162,10 +166,10 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
     <svg viewBox="0 0 360 360" role="img">
       <circle cx="180" cy="180" r="168" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 8"/>
       <circle cx="180" cy="180" r="86" fill="var(--deep)"/>
-      <circle cx="180" cy="180" r="70" fill="none" stroke="var(--accent)" stroke-width="2"/>
-      <g fill="var(--accent)"><circle cx="180" cy="142" r="9"/><circle cx="217" cy="170" r="9"/><circle cx="203" cy="214" r="9"/><circle cx="157" cy="214" r="9"/><circle cx="143" cy="170" r="9"/></g>
-      <g font-family="Bricolage Grotesque,Trebuchet MS,sans-serif" font-weight="700" font-size="17" text-anchor="middle" fill="var(--ink)">
-        <circle cx="180" cy="30" r="27" fill="var(--accent)"/><text x="180" y="36">Du</text>
+      <circle cx="180" cy="180" r="70" fill="none" stroke="var(--pop)" stroke-width="2"/>
+      <g fill="var(--pop)"><circle cx="180" cy="142" r="9"/><circle cx="217" cy="170" r="9"/><circle cx="203" cy="214" r="9"/><circle cx="157" cy="214" r="9"/><circle cx="143" cy="170" r="9"/></g>
+      <g font-family="Fraunces,Georgia,serif" font-weight="600" font-size="18" text-anchor="middle" fill="var(--ink)">
+        <circle cx="180" cy="30" r="27" fill="var(--accent)"/><text x="180" y="36" fill="var(--accent-ink)">Du</text>
         <circle cx="261" cy="52" r="27" fill="var(--tint)"/><text x="261" y="58">M</text>
         <circle cx="320" cy="111" r="27" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="320" y="117">L</text>
         <circle cx="320" cy="249" r="27" fill="var(--tint)"/><text x="320" y="255">S</text>
@@ -197,7 +201,7 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
   <div class="head">
     <span class="eyebrow">Was wir übernehmen</span>
     <h2>Alles rund um den Abend, außer dem Gastgeben.</h2>
-    <p>Du bringst Gesicht und Followerschaft mit, ob groß oder noch klein. Den Rest nehmen wir dir ab, damit du dich auf die Gäste konzentrieren kannst.</p>
+    <p>Du bringst nur dich und ein offenes Herz mit. Den Rest nehmen wir dir ab, damit du dich auf die Gäste konzentrieren kannst.</p>
   </div>
   <div class="grid">
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><h3>Location</h3><p>Wir suchen ausgewählte Cafés, Restaurants und andere Locations, die zu deinem Stil und deiner Gästezahl passen, und klären Raum, Menü und Ablauf direkt mit dem Team.</p></div>
@@ -208,7 +212,7 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></div><h3>Sicherer Rahmen</h3><p>Klare Hausregeln, Foto-Hinweis und Ansprechperson für alle Gäste. Besonders wichtig, wenn dein Format ein geschützter Raum sein soll.</p></div>
   </div>
   <div class="you">
-    <div class="card"><h3>Was du übernimmst</h3><ul><li>Dein Gesicht, deine Stimme, deine Follower</li><li>Ankündigung in Stories und Feed (Texte liefern wir)</li><li>Gastgeben am Abend</li></ul></div>
+    <div class="card"><h3>Was du übernimmst</h3><ul><li>Dich selbst, deine Stimme und ein offenes Herz</li><li>Ankündigung in Stories und Feed (Texte liefern wir)</li><li>Gastgeben am Abend</li></ul></div>
     <div class="card"><h3>Was ich vorher mit dir kläre</h3><ul><li>Welches Format zu dir und deinem Publikum passt</li><li>Datum, Gästezahl und Ticketpreis</li><li>Rollen und Verantwortlichkeiten, schriftlich festgehalten</li></ul></div>
   </div>
 </section>
@@ -318,7 +322,7 @@ footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;
 
 <footer>
   <span><b style="font-family:var(--f-display);color:var(--ink)">Gather Studio</b> · Treffen vor Ort und online</span>
-  <span><a href="about.html">Über mich</a> · Kontakt: nicky.nikaaa@gmail.com</span>
+  <span><a href="about.html">Über Gather Studio</a> · Kontakt: nicky.nikaaa@gmail.com</span>
 </footer>
 </div>
 
