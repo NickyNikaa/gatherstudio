@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Gather Studio organisiert Treffen für Creator: Location, Einladung, Anmeldung und Abrechnung.">
+<title>Gather Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: Hero mit Tisch von oben (SVG), danach Leistungen, Ablauf auf tiefem Teal-Band, Modell, Anfrage. */
+:root{
+  --bg:#EEF1F3; --surface:#FFFFFF; --ink:#12202A; --muted:#51616C; --line:#D3DBE0;
+  --accent:#F0705A; --accent-ink:#12202A; --deep:#0E3B3F; --deep-ink:#EAF4F2; --tint:#CFE3E0;
+  --f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1A1F; --surface:#17252B; --ink:#EAF0F2; --muted:#9DB0B8; --line:#2A3C44;
+  --accent:#FF8068; --accent-ink:#12202A; --deep:#0A2A2D; --deep-ink:#EAF4F2; --tint:#1F4A4E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1A1F; --surface:#17252B; --ink:#EAF0F2; --muted:#9DB0B8; --line:#2A3C44;
+  --accent:#FF8068; --accent-ink:#12202A; --deep:#0A2A2D; --deep-ink:#EAF4F2; --tint:#1F4A4E; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font:600 16px/1 var(--f-body);text-decoration:none;cursor:pointer}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.eyebrow{font:600 13px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px}
+.logo{font:800 22px/1 var(--f-display);letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--tint)}
+nav .btn{padding:11px 18px;font-size:15px}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:36px 72px}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent) 62%,var(--accent) 92%,transparent 92%)}
+.hero .lead{margin-top:22px;font-size:19px;max-width:34em;color:var(--muted)}
+.hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .facts{margin-top:34px;display:flex;gap:28px;flex-wrap:wrap}
+.hero .facts div{font-size:14px;color:var(--muted);line-height:1.35}
+.hero .facts b{display:block;font:700 26px/1 var(--f-display);color:var(--ink);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.table{width:100%;max-width:460px;justify-self:center}
+.table svg{width:100%;height:auto;display:block}
+
+section{padding-block:72px}
+.head{max-width:36em;margin-bottom:40px}
+.head h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;margin-top:14px}
+.head p{margin-top:14px;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;min-width:0}
+.card h3{font-size:21px;font-weight:700;margin-bottom:10px}
+.card p{color:var(--muted);font-size:16px}
+.card .ic{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.you{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.you .card{background:transparent;border-style:dashed}
+.you ul{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:16px}
+.you li{margin-bottom:6px}
+
+.band{background:var(--deep);color:var(--deep-ink);border-radius:28px;padding:56px clamp(20px,5vw,56px)}
+.band .eyebrow{color:#9CC9C3}
+.band .head p{color:#BFD9D5}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid rgba(255,255,255,.25);padding-top:18px;min-width:0}
+.steps li::before{content:"Schritt " counter(s);display:block;font:600 13px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.steps h3{font-size:21px;margin-bottom:8px}
+.steps p{color:#BFD9D5;font-size:15.5px}
+
+.fmt{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fmt .card{padding:22px}
+.fmt .n{font:800 40px/1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--ink)}
+.fmt .n small{font:600 14px/1 var(--f-body);color:var(--muted);margin-left:6px}
+.fmt h3{font-size:18px;margin:0 0 6px}
+.fmt p{font-size:15px}
+
+.model{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.split{display:grid;gap:12px}
+.split div{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.split b{font:700 18px/1.2 var(--f-display);display:block;margin-bottom:4px}
+.split span{color:var(--muted);font-size:15.5px}
+.split .dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:7px}
+.note{margin-top:16px;font-size:14.5px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding-block:18px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font:600 18px/1.3 var(--f-display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;line-height:1;color:var(--muted)}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:12px;color:var(--muted);max-width:44em}
+
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px}
+.ways{display:grid;gap:14px;margin-top:26px}
+.way{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-width:0}
+.way span{min-width:0;overflow-wrap:anywhere}
+.way small{display:block;color:var(--muted);font-size:13px}
+.way button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:8px 14px;font:600 14px/1 var(--f-body);cursor:pointer}
+form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:16px;min-width:0}
+label{font:600 14px/1.2 var(--f-body);display:grid;gap:6px}
+input,textarea,select{font:400 16px/1.4 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:96px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#out{display:none;gap:12px}
+#out.show{display:grid}
+#out textarea{min-height:150px;font-size:15px}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+footer{padding-block:48px 56px;color:var(--muted);font-size:14.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);margin-top:40px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-block:20px 48px}
+  .table{max-width:360px}
+  .grid,.fmt{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .model,.contact{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:52px}
+  .grid,.fmt,.steps,.you,.row2{grid-template-columns:1fr}
+  .band{border-radius:20px;padding-block:40px}
+  .hero .facts{gap:20px}
+}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+</style>
+
+
+<style>:root{color-scheme:light}body{margin:0}</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="logo" href="#top"><i aria-hidden="true"></i>Gather Studio</a>
+  <a class="btn pri" href="#anfrage">Anfrage senden</a>
+</nav>
+
+<header class="hero" id="top">
+  <div>
+    <span class="eyebrow">Event-Service für Creator</span>
+    <h1 style="margin-top:18px">Aus deinen Followern wird eine <em>Community, die dich trägt.</em></h1>
+    <p class="lead">Du brauchst keine große Reichweite, nur Lust auf echte Begegnungen. Gather Studio organisiert Treffen in ausgewählten Cafés, Restaurants und anderen Locations, mit Location, Einladung, Anmeldung und Abrechnung. Du lernst deine Follower persönlich kennen, baust Vertrauen auf und verdienst zum ersten Mal an deiner Reichweite.</p>
+    <div class="cta">
+      <a class="btn pri" href="#anfrage">Event anfragen</a>
+      <a class="btn" href="#ablauf">So läuft es ab</a>
+    </div>
+    <div class="facts">
+      <div><b>Jede Größe</b>vom Dinner bis zum Workshop</div>
+      <div><b>4 Wochen</b>von der Idee bis zum Abend</div>
+      <div><b>1 Person</b>Ansprechpartnerin für alles</div>
+    </div>
+  </div>
+  <div class="table" aria-hidden="true">
+    <svg viewBox="0 0 360 360" role="img">
+      <circle cx="180" cy="180" r="168" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 8"/>
+      <circle cx="180" cy="180" r="86" fill="var(--deep)"/>
+      <circle cx="180" cy="180" r="70" fill="none" stroke="var(--accent)" stroke-width="2"/>
+      <g fill="var(--accent)"><circle cx="180" cy="142" r="9"/><circle cx="217" cy="170" r="9"/><circle cx="203" cy="214" r="9"/><circle cx="157" cy="214" r="9"/><circle cx="143" cy="170" r="9"/></g>
+      <g font-family="Bricolage Grotesque,Trebuchet MS,sans-serif" font-weight="700" font-size="17" text-anchor="middle" fill="var(--ink)">
+        <circle cx="180" cy="30" r="27" fill="var(--accent)"/><text x="180" y="36">Du</text>
+        <circle cx="261" cy="52" r="27" fill="var(--tint)"/><text x="261" y="58">M</text>
+        <circle cx="320" cy="111" r="27" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="320" y="117">L</text>
+        <circle cx="320" cy="249" r="27" fill="var(--tint)"/><text x="320" y="255">S</text>
+        <circle cx="261" cy="308" r="27" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="261" y="314">J</text>
+        <circle cx="180" cy="330" r="27" fill="var(--tint)"/><text x="180" y="336">A</text>
+        <circle cx="99" cy="308" r="27" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="99" y="314">N</text>
+        <circle cx="40" cy="249" r="27" fill="var(--tint)"/><text x="40" y="255">K</text>
+        <circle cx="40" cy="111" r="27" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="40" y="117">T</text>
+        <circle cx="99" cy="52" r="27" fill="var(--tint)"/><text x="99" y="58">R</text>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<section id="warum" style="padding-top:8px">
+  <div class="head">
+    <span class="eyebrow">Warum Treffen</span>
+    <h2>Follower scrollen vorbei. Gäste bleiben.</h2>
+    <p>Likes sind schnell vergessen. Ein gemeinsamer Abend bleibt hängen. Aus einer kleinen Followerschaft wird so Schritt für Schritt eine engagierte Community, die dir vertraut.</p>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>Vertrauen</h3><p>Wer dich einmal persönlich getroffen hat, folgt dir anders. Du wirst vom Gesicht im Feed zu einer Person, die man kennt.</p></div>
+    <div class="card"><h3>Bindung</h3><p>Gäste werden Stammgäste und erzählen weiter. Aus Zuschauern entstehen Menschen, die sich untereinander kennen und wiederkommen.</p></div>
+    <div class="card"><h3>Einnahmen</h3><p>Die ersten Tickets sind der Anfang. Mit einer treuen Gruppe folgen wiederkehrende Formate, Kooperationen und eigene Angebote. Das ist kein Versprechen, sondern der Hebel.</p></div>
+  </div>
+</section>
+
+<section id="leistung">
+  <div class="head">
+    <span class="eyebrow">Was wir übernehmen</span>
+    <h2>Alles rund um den Abend, außer dem Gastgeben.</h2>
+    <p>Du bringst Gesicht und Followerschaft mit, auch wenn sie noch klein ist. Den Rest nehmen wir dir ab, damit du dich auf die Gäste konzentrieren kannst.</p>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><h3>Location</h3><p>Wir suchen ausgewählte Cafés, Restaurants und andere Locations, die zu deinem Stil und deiner Gästezahl passen, und klären Raum, Menü und Ablauf direkt mit dem Team.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><h3>Einladung und Anmeldung</h3><p>Wir bauen die Eventseite, verwalten die Gästeliste und erinnern die Gäste vorab. Du bekommst fertige Texte und Bilder für Stories und Posts.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6.5 9.5v5M17.5 9.5v5"/></svg></div><h3>Einnahmen und Abrechnung</h3><p>Ticketverkauf, Abrechnung mit der Location und Auszahlung deines Anteils laufen sauber getrennt und werden vorab schriftlich vereinbart.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Ablauf am Abend</h3><p>Eine Ansprechpartnerin vor Ort, Begrüßung, Platzierung der Gäste und Zeitplan. Du bist Gastgeberin oder Gastgeber und musst nichts koordinieren.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></div><h3>Nachbereitung</h3><p>Fotos, Dank an die Gäste, Feedback und eine kurze Auswertung. Wir helfen dir, aus den Gästen eine feste Community aufzubauen, etwa mit einer Folge-Gruppe oder einem Verteiler.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></div><h3>Sicherer Rahmen</h3><p>Klare Hausregeln, Foto-Hinweis und Ansprechperson für alle Gäste. Besonders wichtig, wenn dein Format ein geschützter Raum sein soll.</p></div>
+  </div>
+  <div class="you">
+    <div class="card"><h3>Was du übernimmst</h3><ul><li>Dein Gesicht, deine Stimme, deine Follower</li><li>Ankündigung in Stories und Feed (Texte liefern wir)</li><li>Gastgeben am Abend</li></ul></div>
+    <div class="card"><h3>Was ich vorher mit dir kläre</h3><ul><li>Welches Format zu dir und deinem Publikum passt</li><li>Datum, Gästezahl und Ticketpreis</li><li>Rollen und Verantwortlichkeiten, schriftlich festgehalten</li></ul></div>
+  </div>
+</section>
+
+<section id="formate" style="padding-top:8px">
+  <div class="head">
+    <span class="eyebrow">Formate</span>
+    <h2>Nah, persönlich und wiederholbar.</h2>
+    <p>Vom Dinner bis zum Workshop: Wir passen das Format an dich und dein Publikum an. Überall entsteht das, was online fehlt: echte Gespräche.</p>
+  </div>
+  <div class="fmt">
+    <div class="card"><h3>Dinner mit dir</h3><p>Ein langer Tisch, ein festes Menü, ein Abend mit Gesprächsimpulsen.</p></div>
+    <div class="card"><h3>Café-Morgen</h3><p>Frühstück und Kennenlernen am Wochenende, ohne großen Aufwand für dich.</p></div>
+    <div class="card"><h3>Walk und Brunch</h3><p>Gemeinsamer Spaziergang, danach Brunch in einem Café.</p></div>
+    <div class="card"><h3>Workshop im Café</h3><p>Kreativ-, Skill- oder Themenabend mit dir als Gastgeberin oder Gastgeber.</p></div>
+  </div>
+</section>
+
+<div class="band" id="ablauf">
+  <div class="head">
+    <span class="eyebrow">Ablauf</span>
+    <h2>Von der ersten Nachricht bis zum Abend in vier Schritten.</h2>
+    <p>Du investierst ein Gespräch, eine Freigabe und einen Abend. Alles dazwischen läuft über uns.</p>
+  </div>
+  <ol class="steps">
+    <li><h3>Kennenlernen</h3><p>Kurzes Gespräch zu deinen Followern, deinem Stil und deinen Wünschen. Danach bekommst du einen Vorschlag für Format, Termin und Gästezahl.</p></li>
+    <li><h3>Konzept und Location</h3><p>Wir wählen die passende Location, klären Menü und Preis und halten Rollen, Kosten und Beteiligung schriftlich fest.</p></li>
+    <li><h3>Einladung</h3><p>Eventseite, Anmeldung und Kommunikationspaket gehen online. Du kündigst an, wir kümmern uns um Fragen und Gästeliste.</p></li>
+    <li><h3>Der Abend</h3><p>Wir sind vor Ort, du bist Gastgeberin oder Gastgeber. Danach folgen Abrechnung, Auszahlung und eine kurze Auswertung.</p></li>
+  </ol>
+</div>
+
+<section id="modell">
+  <div class="model">
+    <div class="head" style="margin:0">
+      <span class="eyebrow">Modell</span>
+      <h2>Ein faires Modell für Events jeder Größe.</h2>
+      <p>Wir rechnen transparent und legen alles vor dem ersten Ticketverkauf schriftlich fest. Konkrete Beträge hängen von Format, Gästezahl und Location ab und werden im Gespräch geklärt.</p>
+      <p class="note">Rechtliche Details wie Verantwortlichkeiten und Haftung werden im Vertrag geregelt. Die Location verantwortet Räume, Küche und Ausschank.</p>
+    </div>
+    <div class="split">
+      <div><span class="dot"></span><p><b>Feste Organisationsgebühr</b><span>Deckt Planung, Abstimmung mit der Location, Anmeldung und Betreuung vor Ort ab.</span></p></div>
+      <div><span class="dot"></span><p><b>Beteiligung am Ticketumsatz</b><span>Du verdienst mit, wenn dein Event gut läuft. Der Anteil wird vorab festgelegt.</span></p></div>
+      <div><span class="dot"></span><p><b>Verzehr direkt bei der Location</b><span>Essen und Getränke werden von der Location abgerechnet, nicht über dich.</span></p></div>
+      <div><span class="dot"></span><p><b>Alles schriftlich vorab</b><span>Kosten, Anteile, Absage und Rollen stehen fest, bevor du etwas ankündigst.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:8px">
+  <div class="head"><span class="eyebrow">Fragen</span><h2>Was Creator vorher wissen wollen.</h2></div>
+  <details><summary>Ab wie vielen Followern lohnt sich ein Event?</summary><p>Du brauchst keine große Followerschaft. Oft reichen schon wenige tausend Follower, wenn sie aktiv reagieren, und für ein erstes Dinner mit 10 bis 12 Gästen auch weniger. Die Bindung zählt mehr als die Zahl. Im ersten Gespräch schauen wir gemeinsam, welches Format und welche Gästezahl zu dir passen.</p></details>
+  <details><summary>Was passiert, wenn zu wenige Gäste kommen?</summary><p>Vor dem Start legen wir eine Mindestgästezahl und die Regeln für eine Absage fest. So entsteht für niemanden eine Überraschung.</p></details>
+  <details><summary>Wer ist rechtlich Veranstalterin?</summary><p>Das klären wir pro Event und halten es schriftlich fest. Ziel ist eine klare Aufgabenteilung zwischen dir, der Location und uns. Für rechtliche Fragen empfehlen wir zusätzlich eine eigene Beratung.</p></details>
+  <details><summary>Gehören die Gäste und Kontakte mir?</summary><p>Die Gäste sind deine Follower und bleiben deine Kontakte. Ob Gäste in eine gemeinsame Gruppe oder deinen Verteiler eingeladen werden, entscheidest du.</p></details>
+  <details><summary>Kann ich ein Format auch mehrmals durchführen?</summary><p>Ja. Wiederkehrende Formate sind sogar ideal, weil Ablauf, Location und Kommunikation dann einmal aufgebaut werden und von Mal zu Mal leichter laufen.</p></details>
+</section>
+
+<section id="anfrage">
+  <div class="contact">
+    <div>
+      <span class="eyebrow">Anfrage</span>
+      <h2 style="font-size:clamp(30px,4.4vw,46px);font-weight:800;margin-top:14px">Erzähl mir von deinem Kanal.</h2>
+      <p style="margin-top:14px;color:var(--muted)">Fülle das Formular aus, kopiere die fertige Nachricht und schick sie mir per Mail. Ich melde mich in der Regel innerhalb von zwei Tagen.</p>
+      <div class="ways">
+        <div class="way"><span><small>E-Mail</small><a id="mailTxt" href="#">deine@mail.de</a></span><button type="button" data-copy="mail">Kopieren</button></div>
+        <div class="way" id="igWay"><span><small>Instagram</small><a id="igTxt" href="#" target="_blank" rel="noopener noreferrer">@dein_handle</a></span><button type="button" data-copy="ig">Kopieren</button></div>
+      </div>
+    </div>
+    <form id="f" novalidate>
+      <div class="row2">
+        <label for="fname">Dein Name<input id="fname" autocomplete="name" placeholder="Vor- und Nachname"></label>
+        <label for="fch">Dein Kanal<input id="fch" placeholder="@deinhandle oder Link"></label>
+      </div>
+      <div class="row2">
+        <label for="fsize">Follower<select id="fsize"><option value="">Bitte wählen</option><option>bis 1.000</option><option>1.000 bis 5.000</option><option>5.000 bis 20.000</option><option>über 20.000</option></select></label>
+        <label for="ffmt">Wunschformat<select id="ffmt"><option value="">Bitte wählen</option><option>Dinner</option><option>Café-Morgen</option><option>Walk und Brunch</option><option>Workshop im Café</option><option>Noch offen</option></select></label>
+      </div>
+      <label for="fidea">Deine Idee<textarea id="fidea" placeholder="Worum geht es auf deinem Kanal, und was wünschst du dir von einem Treffen?"></textarea></label>
+      <div class="acts"><button class="btn pri" type="submit">Nachricht vorbereiten</button></div>
+      <div id="out" aria-live="polite">
+        <label for="fmsg">Deine Nachricht<textarea id="fmsg" readonly></textarea></label>
+        <div class="acts">
+          <button class="btn" type="button" data-copy="msg">Nachricht kopieren</button>
+          <a class="btn" id="mailGo" href="#">Per Mail öffnen</a>
+          <a class="btn" id="igGo" href="#" target="_blank" rel="noopener noreferrer" hidden>Instagram öffnen</a>
+        </div>
+        <p class="note" id="status"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span><b style="font-family:var(--f-display);color:var(--ink)">Gather Studio</b> · Events für Creator</span>
+  <span>Kontakt: nicky.nikaaa@gmail.com</span>
+</footer>
+</div>
+
+<script>
+/* Hier die echten Kontaktdaten eintragen. */
+var CONTACT={email:"nicky.nikaaa@gmail.com",instagram:""};
+(function(){
+  var $=function(s){return document.querySelector(s)};
+  var mail=CONTACT.email, ig=CONTACT.instagram.replace(/^@/,"");
+  var mt=$("#mailTxt"), it=$("#igTxt");
+  mt.textContent=mail; mt.href="mailto:"+mail;
+  if(ig){it.textContent="@"+ig; it.href="https://www.instagram.com/"+ig+"/"; $("#igGo").href=it.href; $("#igGo").hidden=false;}
+  else{$("#igWay").hidden=true;}
+  function msg(){
+    var g=function(id){return ($("#"+id).value||"").trim()};
+    var l=["Hallo, ich interessiere mich für einen Event mit Gather Studio.",""];
+    l.push("Name: "+(g("fname")||"(bitte ergänzen)"));
+    l.push("Kanal: "+(g("fch")||"(bitte ergänzen)"));
+    if(g("fsize"))l.push("Follower: "+g("fsize"));
+    if(g("ffmt"))l.push("Wunschformat: "+g("ffmt"));
+    if(g("fidea")){l.push("");l.push(g("fidea"))}
+    l.push("");l.push("Viele Grüße");
+    return l.join("\n");
+  }
+  function copy(txt,btn){
+    var done=function(ok){var o=btn.textContent;btn.textContent=ok?"Kopiert":"Bitte markieren";setTimeout(function(){btn.textContent=o},1800)};
+    try{navigator.clipboard.writeText(txt).then(function(){done(true)},function(){fallback()})}catch(e){fallback()}
+    function fallback(){
+      var t=document.createElement("textarea");t.value=txt;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();
+      var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+      t.remove();done(ok);
+    }
+  }
+  $("#f").addEventListener("submit",function(e){
+    e.preventDefault();
+    var m=msg();
+    $("#fmsg").value=m;
+    $("#mailGo").href="mailto:"+mail+"?subject="+encodeURIComponent("Anfrage Gather Studio")+"&body="+encodeURIComponent(m);
+    $("#out").classList.add("show");
+    $("#status").textContent="Kopiere die Nachricht und schick sie per Mail. Die Links öffnen sich je nach Gerät nicht immer, das Kopieren funktioniert immer.";
+    $("#fmsg").focus();
+  });
+  document.addEventListener("click",function(e){
+    var b=e.target.closest("[data-copy]");if(!b)return;
+    var k=b.getAttribute("data-copy");
+    copy(k==="mail"?mail:k==="ig"?"@"+ig:$("#fmsg").value,b);
+  });
+})();
+</script>
+
+</body>
+</html>
